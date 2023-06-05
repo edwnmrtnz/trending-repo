@@ -35,6 +35,15 @@ class FetchTrendingGithubRepoUseCaseTest {
         Truth.assertThat(repos).isNotEmpty()
     }
 
+    @Test
+    fun `should still empty list when repo returns empty`() = runTest {
+        Mockito.`when`(gateway.load()).thenReturn(listOf())
+
+        val repos = sut.execute(Unit)
+
+        Truth.assertThat(repos).isEmpty()
+    }
+
     companion object {
         private val SAMPLE_REPO = GithubRepoTestData.build()
     }
