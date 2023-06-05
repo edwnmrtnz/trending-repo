@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.detekt).apply(true)
 }
 
+apply from: "buildscripts/githooks.gradle"
 subprojects {
     apply from: "../buildscripts/ktlint.gradle"
     apply from: "../buildscripts/detekt.gradle"
@@ -42,3 +43,5 @@ subprojects {
         }
     }
 }
+
+tasks.getByPath("app:preBuild").dependsOn installHooks
