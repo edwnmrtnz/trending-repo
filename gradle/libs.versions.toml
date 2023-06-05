@@ -3,7 +3,7 @@ core-ktx = "1.9.0"
 appcompat = "1.6.1"
 material = "1.9.0"
 constraintlayout = "2.1.4"
-fragment-ktx = "2.5.3"
+activity-ktx = "1.7.2"
 ktlint = "11.3.1"
 junit = "4.13.2"
 android-ext-junit = "1.1.5"
@@ -15,11 +15,14 @@ retrofit = "2.9.0"
 shimmer = "0.5.0"
 picasso = "2.8"
 
+
+
 edwnmrtnz-testing-local = "1.1"
 
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+activity-ktx = {module = "androidx.activity:activity-ktx", version.ref = "activity-ktx"}
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
@@ -39,7 +42,7 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 [bundles]
 app = [
     "core-ktx", "appcompat", "material", "constraintlayout", "gson", "retrofit",
-    "retrofit-converter-gson", "shimmer", "picasso"
+    "retrofit-converter-gson", "shimmer", "picasso", "activity-ktx"
 ]
 testing-local = [
     "junit", "edwnmrtnz-testing-local"
