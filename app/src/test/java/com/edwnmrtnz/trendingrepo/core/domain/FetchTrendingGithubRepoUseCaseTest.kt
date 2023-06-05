@@ -18,7 +18,7 @@ import org.mockito.MockitoAnnotations
 
 class FetchTrendingGithubRepoUseCaseTest {
 
-    private lateinit var sut: FetchTrendingGithubRepoUseCase
+    private lateinit var sut: FetchTrendingGithubReposUseCase
 
     @Mock
     private lateinit var gateway: GithubRepoGateway
@@ -26,7 +26,7 @@ class FetchTrendingGithubRepoUseCaseTest {
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
-        sut = FetchTrendingGithubRepoUseCase(
+        sut = FetchTrendingGithubReposUseCase(
             TestInteractorHandler(),
             gateway
         )
