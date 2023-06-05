@@ -1,3 +1,5 @@
+@file:Suppress("TooGenericExceptionCaught")
+
 package com.edwnmrtnz.trendingrepo.core.domain.interactor
 
 import kotlinx.coroutines.CoroutineScope
