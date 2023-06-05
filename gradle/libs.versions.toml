@@ -10,13 +10,17 @@ android-ext-junit = "1.1.5"
 agp = "8.0.1"
 kotlin = "1.8.20"
 detekt = "1.23.0"
-
+gson = "2.10.1"
+retrofit = "2.9.0"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 
 junit = { module = "junit:junit", version.ref = "junit" }
 android-ext-junit = { module = "androidx.test.ext:junit", version.ref = "android-ext-junit" }
@@ -26,7 +30,7 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 
 [bundles]
 app = [
-    "core-ktx", "appcompat", "material", "constraintlayout"
+    "core-ktx", "appcompat", "material", "constraintlayout", "gson"
 ]
 testing-local = [
     "junit"
