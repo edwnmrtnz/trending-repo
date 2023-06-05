@@ -31,6 +31,9 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager.VERTICAL,
             false
         )
+        binding.rvGithubRepos.addItemDecoration(
+            RecyclerViewItemDecoration(this, R.drawable.shape_divider)
+        )
         binding.rvGithubRepos.adapter = adapter
 
         val repo = FakeGithubReposRepository(this)
