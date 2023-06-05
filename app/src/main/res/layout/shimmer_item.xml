@@ -8,7 +8,7 @@
     tools:showIn="@layout/main_shimmer">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView"
+        android:id="@+id/ivAvatar"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@color/shimmer"
@@ -23,8 +23,8 @@
         android:layout_height="8dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/selector_shimmer_rounded_rectangle"
-        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+        app:layout_constraintTop_toTopOf="@+id/ivAvatar" />
 
     <View
         android:layout_marginTop="10dp"
@@ -33,8 +33,8 @@
         android:layout_marginStart="16dp"
         android:background="@drawable/selector_shimmer_rounded_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
         app:layout_constraintTop_toBottomOf="@id/vShimmerTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
