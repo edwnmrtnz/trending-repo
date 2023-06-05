@@ -14,23 +14,23 @@ gson = "2.10.1"
 retrofit = "2.9.0"
 shimmer = "0.5.0"
 picasso = "2.8"
-
-
+lottie = "6.0.0"
 
 edwnmrtnz-testing-local = "1.1"
 
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
-activity-ktx = {module = "androidx.activity:activity-ktx", version.ref = "activity-ktx"}
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
-shimmer = {module = "com.facebook.shimmer:shimmer", version.ref = "shimmer"}
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 
 edwnmrtnz-testing-local = { module = "net.github.amaterasu:localtest", version.ref = "edwnmrtnz-testing-local" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -42,7 +42,7 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 [bundles]
 app = [
     "core-ktx", "appcompat", "material", "constraintlayout", "gson", "retrofit",
-    "retrofit-converter-gson", "shimmer", "picasso", "activity-ktx"
+    "retrofit-converter-gson", "shimmer", "picasso", "activity-ktx", "lottie"
 ]
 testing-local = [
     "junit", "edwnmrtnz-testing-local"
@@ -56,4 +56,4 @@ testing-instrumented = [
 android-app = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.0-Beta" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
-detekt = {id =  "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
