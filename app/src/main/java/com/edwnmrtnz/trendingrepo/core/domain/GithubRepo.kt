@@ -8,4 +8,12 @@ data class GithubRepo(
     val description: String?,
     val primaryLanguage: String,
     val starCount: Int
-)
+) {
+    fun hasPrimaryLanguage(): Boolean {
+        return primaryLanguage.isNotEmpty()
+    }
+
+    fun hasDescription(): Boolean {
+        return !description.isNullOrBlank()
+    }
+}
