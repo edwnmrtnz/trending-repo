@@ -3,10 +3,12 @@ plugins {
     alias(libs.plugins.android.app).apply(false)
     alias(libs.plugins.kotlin.android).apply(false)
     alias(libs.plugins.ktlint).apply(true)
+    alias(libs.plugins.detekt).apply(true)
 }
 
 subprojects {
     apply from: "../buildscripts/ktlint.gradle"
+    apply from: "../buildscripts/detekt.gradle"
 
     afterEvaluate { project ->
         if(!project.hasProperty("android")) return

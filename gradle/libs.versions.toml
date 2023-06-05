@@ -9,6 +9,7 @@ junit = "4.13.2"
 android-ext-junit = "1.1.5"
 agp = "8.0.1"
 kotlin = "1.8.20"
+detekt = "1.23.0"
 
 
 [libraries]
@@ -39,3 +40,4 @@ testing-instrumented = [
 android-app = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+detekt = {id =  "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
