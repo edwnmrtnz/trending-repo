@@ -23,6 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp" />
 
-    <include layout="@layout/main_shimmer"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/rvGithubRepos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
