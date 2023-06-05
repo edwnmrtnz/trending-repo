@@ -9,5 +9,10 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="ShapeableImageViewCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Theme.TrendingRepo" parent="Base.Theme.TrendingRepo" />
 </resources>

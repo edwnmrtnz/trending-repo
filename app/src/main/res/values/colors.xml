@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="divider">#96e0e0e0</color>
+    <color name="shimmer">#adadad</color>
 </resources>

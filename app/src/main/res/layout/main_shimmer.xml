@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:shimmer_auto_start="true"
+    app:shimmer_clip_to_children="true"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+        <include layout="@layout/shimmer_item" />
+
+        <View
+            android:layout_marginStart="16dp"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <include layout="@layout/shimmer_item" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</com.facebook.shimmer.ShimmerFrameLayout>
