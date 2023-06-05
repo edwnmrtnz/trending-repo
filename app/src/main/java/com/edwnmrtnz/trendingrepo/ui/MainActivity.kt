@@ -1,4 +1,4 @@
-package com.edwnmrtnz.trendingrepo
+package com.edwnmrtnz.trendingrepo.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import com.edwnmrtnz.trendingrepo.R
 import com.edwnmrtnz.trendingrepo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
