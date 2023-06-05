@@ -7,6 +7,7 @@ import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyException
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyServiceFailureException
 import com.google.common.truth.Truth
+import java.lang.IllegalStateException
 import kotlinx.coroutines.test.runTest
 import okio.IOException
 import org.junit.Before
@@ -70,6 +71,15 @@ class FetchTrendingGithubRepoUseCaseTest {
         }
 
         Truth.assertThat(total).isEqualTo(count)
+    }
+
+    @Test(expected = IllegalStateException::class)
+    fun `throwing non trendy based exception should just crash the app`() = runTest {
+        Mockito.`when`(gateway.load()).then {
+            throw IllegalStateException("Something went wrong")
+        }
+
+        sut.execute(Unit)
     }
 
     companion object {
