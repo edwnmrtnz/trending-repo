@@ -1,5 +1,18 @@
 #!/bin/sh
 
+# shellcheck disable=SC2028
+echo "Running detekt..."
+./gradlew detekt
+EXIT_CODE=$?
+if [ $EXIT_CODE -ne 0 ]; then
+  echo $OUTPUT
+  echo "***********************************************"
+  echo "                 Detekt failed                 "
+  echo " Please fix the above issues before committing "
+  echo "***********************************************"
+  exit $EXIT_CODE
+fi
+
 echo "Executing unit test..."
 ./gradlew testDebugUnitTest
 # shellcheck disable=SC2039
