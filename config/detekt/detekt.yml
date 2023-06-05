@@ -256,6 +256,7 @@ exceptions:
     active: true
     ignoreLabeled: false
   SwallowedException:
+    excludes: [ '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**' ]
     active: true
     ignoredExceptionTypes:
       - 'InterruptedException'
