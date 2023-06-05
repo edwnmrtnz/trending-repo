@@ -13,6 +13,7 @@ detekt = "1.23.0"
 gson = "2.10.1"
 retrofit = "2.9.0"
 shimmer = "0.5.0"
+picasso = "2.8"
 
 edwnmrtnz-testing-local = "1.1"
 
@@ -26,6 +27,7 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 shimmer = {module = "com.facebook.shimmer:shimmer", version.ref = "shimmer"}
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 
 edwnmrtnz-testing-local = { module = "net.github.amaterasu:localtest", version.ref = "edwnmrtnz-testing-local" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -37,7 +39,7 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 [bundles]
 app = [
     "core-ktx", "appcompat", "material", "constraintlayout", "gson", "retrofit",
-    "retrofit-converter-gson", "shimmer"
+    "retrofit-converter-gson", "shimmer", "picasso"
 ]
 testing-local = [
     "junit", "edwnmrtnz-testing-local"
