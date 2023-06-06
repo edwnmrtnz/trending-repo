@@ -23,3 +23,7 @@ dependencies {
 
     implementation project(path: ':presenter')
 }
+
+kapt {
+    correctErrorTypes true
+}

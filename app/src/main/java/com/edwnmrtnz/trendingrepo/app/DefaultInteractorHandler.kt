@@ -4,10 +4,11 @@ import android.util.Log
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorExceptionHandler
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
 import java.lang.Exception
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
-class DefaultInteractorHandler : InteractorHandler {
+class DefaultInteractorHandler @Inject constructor() : InteractorHandler {
     override fun getDispatcher(): CoroutineDispatcher {
         return Dispatchers.IO
     }

@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.edwnmrtnz.trendingrepo.R
 import com.edwnmrtnz.trendingrepo.databinding.ActivityMainBinding
 import com.github.amaterasu.scopey.scopey
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Provider
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MainScreenView {
 
     private lateinit var binding: ActivityMainBinding
@@ -80,7 +82,7 @@ class MainActivity : AppCompatActivity(), MainScreenView {
             return
         }
 
-        if (state.loadError.isNullOrBlank()) {
+        if (!state.loadError.isNullOrBlank()) {
             binding.rvGithubRepos.visibility = View.GONE
             binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
             binding.llEmptyStateContainer.visibility = View.VISIBLE

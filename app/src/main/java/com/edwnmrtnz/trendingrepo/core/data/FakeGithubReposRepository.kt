@@ -4,8 +4,12 @@ import android.content.Context
 import com.edwnmrtnz.trendingrepo.core.domain.GithubRepo
 import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
 import com.google.gson.Gson
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class FakeGithubReposRepository(private val context: Context) : GithubRepoGateway {
+class FakeGithubReposRepository @Inject constructor(
+    @ApplicationContext private val context: Context
+) : GithubRepoGateway {
 
     private var exception: Exception? = null
 
