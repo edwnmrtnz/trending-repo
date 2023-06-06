@@ -2,18 +2,18 @@ package com.edwnmrtnz.trendingrepo.core.data
 
 import android.text.format.DateUtils
 import com.edwnmrtnz.trendingrepo.core.domain.LastRequestProvider
-import java.util.Date
 import javax.inject.Inject
 
-class DefaultLastRequestProvider @Inject constructor() : LastRequestProvider {
-
-    private var lastRequest = Date()
+class DefaultLastRequestProvider @Inject constructor(
+    private val dao: LastRequestDao
+) : LastRequestProvider {
 
     override suspend fun isToday(): Boolean {
-        return DateUtils.isToday(lastRequest.time)
+        val lastRequest = dao.get()?.toDate()
+        return if (lastRequest == null) false else DateUtils.isToday(lastRequest.time)
     }
 
     override suspend fun update() {
-        lastRequest = Date()
+        dao.save(LastRequestRow.create())
     }
 }

@@ -1,10 +1,13 @@
 package com.edwnmrtnz.trendingrepo.app.di
 
+import android.content.Context
 import com.edwnmrtnz.trendingrepo.app.DefaultInteractorHandler
 import com.edwnmrtnz.trendingrepo.app.TrendyApplication
 import com.edwnmrtnz.trendingrepo.core.data.DefaultGithubReposRepository
 import com.edwnmrtnz.trendingrepo.core.data.DefaultLastRequestProvider
 import com.edwnmrtnz.trendingrepo.core.data.GithubAPI
+import com.edwnmrtnz.trendingrepo.core.data.LastRequestDao
+import com.edwnmrtnz.trendingrepo.core.data.TrendingRepoDatabase
 import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
 import com.edwnmrtnz.trendingrepo.core.domain.LastRequestProvider
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
@@ -13,6 +16,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import retrofit2.Retrofit
@@ -42,6 +46,17 @@ abstract class DataModule {
                 .baseUrl(TrendyApplication.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+        }
+
+        @Singleton
+        @Provides
+        fun provideDatabase(@ApplicationContext context: Context): TrendingRepoDatabase {
+            return TrendingRepoDatabase.getInstance(context)
+        }
+
+        @Provides
+        fun provideLastRequestDao(database: TrendingRepoDatabase): LastRequestDao {
+            return database.lastRequestDao()
         }
 
         @Provides
