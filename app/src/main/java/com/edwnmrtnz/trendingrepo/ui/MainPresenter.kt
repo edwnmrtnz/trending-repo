@@ -22,7 +22,7 @@ class MainPresenter @Inject constructor(
         scope.launch {
             try {
                 val result = fetchTrendingGithubReposUseCase.execute(Unit)
-                render { it.copy(isLoading = false, repos = result) }
+                render { it.copy(isLoading = false, repos = result, loadError = null) }
             } catch (exception: TrendyException) {
                 render {
                     it.copy(isLoading = false, loadError = exception.message ?: DEFAULT_ERROR)

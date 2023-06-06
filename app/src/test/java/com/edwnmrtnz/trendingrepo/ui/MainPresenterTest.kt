@@ -99,6 +99,8 @@ class MainPresenterTest {
         presenter.onRetryAction()
 
         Truth.assertThat(view.state().repos).isNotEmpty()
+        Truth.assertThat(view.state().loadError).isNull()
+        Truth.assertThat(view.state().isLoading).isFalse()
     }
 
     companion object {
