@@ -39,4 +39,8 @@ class DefaultGithubReposRepository @Inject constructor(
     override suspend fun reload(): List<GithubRepo> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun clear() {
+        cache.clear()
+    }
 }

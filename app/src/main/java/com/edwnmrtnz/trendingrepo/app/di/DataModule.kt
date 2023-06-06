@@ -3,8 +3,10 @@ package com.edwnmrtnz.trendingrepo.app.di
 import com.edwnmrtnz.trendingrepo.app.DefaultInteractorHandler
 import com.edwnmrtnz.trendingrepo.app.TrendyApplication
 import com.edwnmrtnz.trendingrepo.core.data.DefaultGithubReposRepository
+import com.edwnmrtnz.trendingrepo.core.data.DefaultLastRequestProvider
 import com.edwnmrtnz.trendingrepo.core.data.GithubAPI
 import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
+import com.edwnmrtnz.trendingrepo.core.domain.LastRequestProvider
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
 import dagger.Binds
 import dagger.Module
@@ -27,6 +29,9 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun interactorHandler(handler: DefaultInteractorHandler): InteractorHandler
+
+    @Binds
+    abstract fun lastRequestProvider(provider: DefaultLastRequestProvider): LastRequestProvider
 
     companion object {
 

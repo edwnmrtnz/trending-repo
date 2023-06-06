@@ -33,6 +33,10 @@ class FakeGithubReposRepository @Inject constructor(
         return load()
     }
 
+    override suspend fun clear() {
+        TODO("Not yet implemented")
+    }
+
     private fun throwIfSet() {
         exception?.let { exception -> throw exception }
     }

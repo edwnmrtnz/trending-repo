@@ -5,4 +5,6 @@ interface GithubRepoGateway {
     suspend fun load(): List<GithubRepo>
 
     suspend fun reload(): List<GithubRepo>
+
+    suspend fun clear()
 }

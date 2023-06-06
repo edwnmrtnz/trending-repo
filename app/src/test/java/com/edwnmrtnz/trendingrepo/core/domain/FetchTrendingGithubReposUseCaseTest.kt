@@ -8,6 +8,7 @@ import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorExceptio
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyServiceFailureException
 import com.google.common.truth.Truth
 import java.lang.IllegalStateException
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import okio.IOException
 import org.junit.Before
@@ -16,20 +17,29 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-class FetchTrendingGithubRepoUseCaseTest {
+class FetchTrendingGithubReposUseCaseTest {
 
     private lateinit var sut: FetchTrendingGithubReposUseCase
 
     @Mock
     private lateinit var gateway: GithubRepoGateway
 
+    @Mock
+    private lateinit var lastRequestProvider: LastRequestProvider
+
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
         sut = FetchTrendingGithubReposUseCase(
             TestInteractorHandler(),
-            gateway
+            gateway,
+            lastRequestProvider
         )
+        defaults()
+    }
+
+    private fun defaults() = runBlocking {
+        Mockito.`when`(lastRequestProvider.isToday()).thenReturn(true)
     }
 
     @Test
@@ -80,6 +90,16 @@ class FetchTrendingGithubRepoUseCaseTest {
         }
 
         sut.execute(Unit)
+    }
+
+    @Test
+    fun `should fetch when last fetch is not today`() = runTest {
+        Mockito.`when`(lastRequestProvider.isToday()).thenReturn(false)
+
+        sut.execute(Unit)
+
+        Mockito.verify(gateway).clear()
+        Mockito.verify(gateway).load()
     }
 
     companion object {
