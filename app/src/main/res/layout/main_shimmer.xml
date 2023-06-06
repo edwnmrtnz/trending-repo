@@ -5,6 +5,7 @@
     app:shimmer_auto_start="true"
     app:shimmer_clip_to_children="true"
     android:padding="8dp"
+    android:id="@+id/sflMainShimmer"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.LinearLayoutCompat
