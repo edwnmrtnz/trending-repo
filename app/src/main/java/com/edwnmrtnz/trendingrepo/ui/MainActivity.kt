@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,8 +65,8 @@ class MainActivity : AppCompatActivity(), MainScreenView {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_refresh -> {
-                Toast.makeText(this, "Refresh", Toast.LENGTH_SHORT).show()
+            R.id.action_change_theme -> {
+                ThemeChanger.change()
                 true
             }
 
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity(), MainScreenView {
             binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
             binding.llEmptyStateContainer.visibility = View.VISIBLE
 
-            binding.tvEmptyStateTitle.text = getString(R.string.title_detault_error)
+            binding.tvEmptyStateTitle.text = getString(R.string.title_default_error)
             binding.tvEmptyStateSubtitle.text = getString(R.string.subtitle_default_error)
             return
         }
@@ -104,7 +103,7 @@ class MainActivity : AppCompatActivity(), MainScreenView {
             binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
             binding.llEmptyStateContainer.visibility = View.VISIBLE
 
-            binding.tvEmptyStateTitle.text = getString(R.string.title_detault_error)
+            binding.tvEmptyStateTitle.text = getString(R.string.title_default_error)
             binding.tvEmptyStateSubtitle.text = getString(R.string.subtitle_error_no_trending)
         }
     }

@@ -4,7 +4,7 @@
     tools:context="com.edwnmrtnz.trendingrepo.ui.MainActivity">
 
     <item
-        android:id="@+id/action_refresh"
-        android:title="@string/toolbar_force_refresh"
+        android:id="@+id/action_change_theme"
+        android:title="@string/toolbar_change_theme"
         app:showAsAction="never"/>
 </menu>
