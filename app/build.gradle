@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.app)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.kotlin.kapt)
 }
 android {
     namespace 'com.edwnmrtnz.trendingrepo'
@@ -14,6 +16,8 @@ android {
 
 dependencies {
     implementation(libs.bundles.app)
+    kapt(libs.bundles.kapt)
+
     testImplementation(libs.bundles.testing.local)
     androidTestImplementation(libs.bundles.testing.instrumented)
 

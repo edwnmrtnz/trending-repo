@@ -4,7 +4,9 @@ plugins {
     alias(libs.plugins.kotlin.android).apply(false)
     alias(libs.plugins.android.lib).apply(false)
     alias(libs.plugins.ktlint).apply(true)
+    alias(libs.plugins.dagger.hilt).apply(false)
     alias(libs.plugins.detekt).apply(true)
+    alias(libs.plugins.kotlin.kapt).apply(false)
 }
 
 apply from: "buildscripts/githooks.gradle"

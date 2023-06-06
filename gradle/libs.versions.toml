@@ -16,6 +16,7 @@ shimmer = "0.5.0"
 picasso = "2.8"
 lottie = "6.0.0"
 coroutines-android = "1.3.9"
+dagger-hilt = "2.44"
 
 edwnmrtnz-testing-local = "1.1"
 edwnmrtnz-scopey = "1.1"
@@ -34,6 +35,9 @@ picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 edwnmrtnz-scopey = { module = "net.github.amaterasu:scopey", version.ref = "edwnmrtnz-scopey" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines-android" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt" }
+dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
+
 
 edwnmrtnz-testing-local = { module = "net.github.amaterasu:localtest", version.ref = "edwnmrtnz-testing-local" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -45,15 +49,17 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 [bundles]
 app = [
     "core-ktx", "appcompat", "material", "constraintlayout", "gson", "retrofit",
-    "retrofit-converter-gson", "shimmer", "picasso", "activity-ktx", "lottie"
+    "retrofit-converter-gson", "shimmer", "picasso", "activity-ktx", "lottie",
+    "dagger-hilt"
 ]
 testing-local = [
     "junit", "edwnmrtnz-testing-local"
 ]
-
 testing-instrumented = [
     "android-ext-junit"
 ]
+kapt = ["dagger-hilt-compiler"]
+
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -61,3 +67,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.0-Beta" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 android-lib = { id = "com.android.library", version.ref = "agp" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
