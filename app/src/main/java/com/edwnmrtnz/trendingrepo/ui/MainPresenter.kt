@@ -16,8 +16,8 @@ class MainPresenter(
 
         scope.launch {
             try {
-                fetchTrendingGithubReposUseCase.execute(Unit)
-                render { it.copy(isLoading = false) }
+                val result = fetchTrendingGithubReposUseCase.execute(Unit)
+                render { it.copy(isLoading = false, repos = result) }
             } catch (exception: TrendyException) {
                 render {
                     it.copy(isLoading = false, loadError = exception.message ?: DEFAULT_ERROR)

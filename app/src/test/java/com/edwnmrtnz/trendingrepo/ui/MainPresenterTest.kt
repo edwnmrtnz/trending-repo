@@ -76,6 +76,16 @@ class MainPresenterTest {
         Truth.assertThat(view.state().loadError).isNull()
     }
 
+    @Test
+    fun `when fetch repos done, reflect repos to state`() = runBlocking {
+        Mockito.`when`(fetchTrendingGithubReposUseCase.execute(Unit))
+            .thenReturn(listOf(SAMPLE_REPO))
+
+        presenter.bind(view)
+
+        Truth.assertThat(view.state().repos).isNotEmpty()
+    }
+
     companion object {
         private val SAMPLE_REPO = GithubRepoTestData.build()
     }
