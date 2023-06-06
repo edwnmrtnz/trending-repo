@@ -7,6 +7,7 @@ import com.edwnmrtnz.trendingrepo.core.data.DefaultGithubReposRepository
 import com.edwnmrtnz.trendingrepo.core.data.DefaultLastRequestProvider
 import com.edwnmrtnz.trendingrepo.core.data.GithubAPI
 import com.edwnmrtnz.trendingrepo.core.data.LastRequestDao
+import com.edwnmrtnz.trendingrepo.core.data.TrendingGithubRepoDao
 import com.edwnmrtnz.trendingrepo.core.data.TrendingRepoDatabase
 import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
 import com.edwnmrtnz.trendingrepo.core.domain.LastRequestProvider
@@ -57,6 +58,11 @@ abstract class DataModule {
         @Provides
         fun provideLastRequestDao(database: TrendingRepoDatabase): LastRequestDao {
             return database.lastRequestDao()
+        }
+
+        @Provides
+        fun provideTrendingGithubRepoDao(database: TrendingRepoDatabase): TrendingGithubRepoDao {
+            return database.trendingGithubRepoDao()
         }
 
         @Provides

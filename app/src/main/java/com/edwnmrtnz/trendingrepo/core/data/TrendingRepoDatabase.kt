@@ -7,7 +7,8 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        LastRequestRow::class
+        LastRequestRow::class,
+        TrendingGithubRepoRow::class
     ],
     version = 1,
     exportSchema = false
@@ -15,6 +16,8 @@ import androidx.room.RoomDatabase
 abstract class TrendingRepoDatabase : RoomDatabase() {
 
     abstract fun lastRequestDao(): LastRequestDao
+
+    abstract fun trendingGithubRepoDao(): TrendingGithubRepoDao
 
     companion object {
         @Volatile

@@ -13,3 +13,15 @@ fun GithubRepoRawResponse.Item.toDomain(): GithubRepo {
         starCount = this.stargazersCount
     )
 }
+
+fun GithubRepo.toDbRow(): TrendingGithubRepoRow {
+    return TrendingGithubRepoRow(
+        repoId = repoId,
+        avatar = avatar,
+        username = username,
+        repoName = repoName,
+        description = description,
+        primaryLanguage = primaryLanguage,
+        starCount = starCount
+    )
+}

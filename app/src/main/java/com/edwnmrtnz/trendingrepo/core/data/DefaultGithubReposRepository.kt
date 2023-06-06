@@ -11,7 +11,8 @@ import retrofit2.HttpException
 
 @Singleton
 class DefaultGithubReposRepository @Inject constructor(
-    private val api: GithubAPI
+    private val api: GithubAPI,
+    private val dao: TrendingGithubRepoDao
 ) : GithubRepoGateway {
 
     private val cache: MutableList<GithubRepo> = mutableListOf()
@@ -21,6 +22,7 @@ class DefaultGithubReposRepository @Inject constructor(
             api.get().items.map { it.toDomain() }.also {
                 cache.clear()
                 cache.addAll(it)
+                dao.insert(it.map { row -> row.toDbRow() })
             }
         } catch (exception: HttpException) {
             throw TrendyHttpErrorException(
