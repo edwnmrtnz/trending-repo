@@ -122,6 +122,15 @@ class DefaultTrendingReposRepositoryTest {
         Truth.assertThat(server.requestCount).isEqualTo(0)
     }
 
+    @Test
+    fun `should be able to clear saved repos`() = runBlocking {
+        db.trendingGithubRepoDao().insert(listOf(GithubRepoTestData.build().toDbRow()))
+
+        sut.clear()
+
+        Truth.assertThat(db.trendingGithubRepoDao().get()).isEmpty()
+    }
+
     companion object {
         private val TRENDING = TestAssetReader
             .read(AppTestConstant.MODULE, "trending.json")

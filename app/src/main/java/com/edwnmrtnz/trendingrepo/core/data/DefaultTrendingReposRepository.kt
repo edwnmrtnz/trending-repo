@@ -45,5 +45,6 @@ class DefaultTrendingReposRepository @Inject constructor(
 
     override suspend fun clear() {
         cache.clear()
+        dao.clear()
     }
 }
