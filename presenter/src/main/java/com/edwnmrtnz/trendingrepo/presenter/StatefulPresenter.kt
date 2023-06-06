@@ -1,4 +1,4 @@
-package com.edwnmrtnz.trendingrepo
+package com.edwnmrtnz.trendingrepo.presenter
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope

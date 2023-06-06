@@ -1,10 +1,10 @@
 package com.edwnmrtnz.trendingrepo.ui
 
 import com.edwnmrtnz.trendingrepo.GithubRepoTestData
-import com.edwnmrtnz.trendingrepo.StatefulPresenter
-import com.edwnmrtnz.trendingrepo.TestView
 import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingRepoUseCase
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
+import com.edwnmrtnz.trendingrepo.presenter.StatefulPresenter
+import com.edwnmrtnz.trendingrepo.presenter.TestView
 import com.github.amaterasu.localtest.CoroutineTestRule
 import com.google.common.truth.Truth
 import kotlinx.coroutines.runBlocking

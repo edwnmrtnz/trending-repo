@@ -1,4 +1,4 @@
-package com.edwnmrtnz.trendingrepo
+package com.edwnmrtnz.trendingrepo.presenter
 
 import com.github.amaterasu.localtest.CoroutineTestRule
 import com.google.common.truth.Truth

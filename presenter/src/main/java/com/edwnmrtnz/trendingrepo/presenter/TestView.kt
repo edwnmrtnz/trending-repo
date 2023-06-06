@@ -1,4 +1,4 @@
-package com.edwnmrtnz.trendingrepo
+package com.edwnmrtnz.trendingrepo.presenter
 
 import java.util.LinkedList
 

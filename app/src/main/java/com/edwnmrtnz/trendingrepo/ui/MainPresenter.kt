@@ -1,8 +1,8 @@
 package com.edwnmrtnz.trendingrepo.ui
 
-import com.edwnmrtnz.trendingrepo.StatefulPresenter
 import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingRepoUseCase
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyException
+import com.edwnmrtnz.trendingrepo.presenter.StatefulPresenter
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
