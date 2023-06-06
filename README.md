@@ -33,4 +33,4 @@ In addition, a <i> presenter </i> module was extracted to avoid cluterring the u
 2. Even though the description says "Github", the core domain layer makes no assumption of whether its from any other provider. It's up to the Presenter Layer and Data Layer to decide what to do with the data. This assumption is cheap and scales well.
 3. Even though its supposedly MVP, a scalable setup is done to accomodate if necessary. This includes ktlint, detekt, dependency injection framework, and etc. Setup like these are faster if Android Team has template.
 4. Overflow menu was used to support switching Dark/Light theme mode.
-
+5. Some countries just have a bad internet connection. Small APK is very important for them to be able to download an app. Code obfuscator and Resource shrinker was activated.
