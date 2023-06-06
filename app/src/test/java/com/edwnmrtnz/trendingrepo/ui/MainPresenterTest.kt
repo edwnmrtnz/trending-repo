@@ -65,6 +65,17 @@ class MainPresenterTest {
         Truth.assertThat(view.state().loadError).isNotNull()
     }
 
+    @Test
+    fun `empty repos should still be considered a success`() = runBlocking {
+        Mockito.`when`(fetchTrendingGithubReposUseCase.execute(Unit))
+            .thenReturn(listOf())
+
+        presenter.bind(view)
+
+        Truth.assertThat(view.state().isLoading).isFalse()
+        Truth.assertThat(view.state().loadError).isNull()
+    }
+
     companion object {
         private val SAMPLE_REPO = GithubRepoTestData.build()
     }
