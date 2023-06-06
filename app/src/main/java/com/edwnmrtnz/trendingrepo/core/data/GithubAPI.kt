@@ -4,6 +4,6 @@ import retrofit2.http.GET
 
 interface GithubAPI {
 
-    @GET("https://api.github.com/search/repositories?q=language=+sort:stars")
+    @GET("search/repositories?q=language=+sort:stars")
     suspend fun get(): GithubRepoRawResponse
 }
