@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity(), MainScreenView {
             RecyclerViewItemDecoration(this, R.drawable.shape_divider)
         )
         binding.rvGithubRepos.adapter = adapter
+        binding.btnRetry.setOnClickListener { presenter.onRetryAction() }
     }
 
     override fun onStart() {

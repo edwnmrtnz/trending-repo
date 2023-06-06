@@ -15,6 +15,10 @@ class MainPresenter @Inject constructor(
     override fun onCreated(state: MainUiState) {
         super.onCreated(state)
 
+        loadRepos()
+    }
+
+    private fun loadRepos() {
         scope.launch {
             try {
                 val result = fetchTrendingGithubReposUseCase.execute(Unit)
@@ -25,6 +29,11 @@ class MainPresenter @Inject constructor(
                 }
             }
         }
+    }
+
+    fun onRetryAction() {
+        render { it.copy(isLoading = true) }
+        loadRepos()
     }
 
     companion object {

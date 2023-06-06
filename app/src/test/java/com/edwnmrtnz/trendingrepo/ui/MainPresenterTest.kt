@@ -86,6 +86,21 @@ class MainPresenterTest {
         Truth.assertThat(view.state().repos).isNotEmpty()
     }
 
+    @Test
+    fun `when retry and got repos, reflect repos to state`() = runBlocking {
+        Mockito.`when`(fetchTrendingGithubReposUseCase.execute(Unit))
+            .then {
+                throw TrendyHttpErrorException(404, "Oops", Exception("oops"))
+            }.thenReturn(
+                listOf(SAMPLE_REPO)
+            )
+        presenter.bind(view)
+
+        presenter.onRetryAction()
+
+        Truth.assertThat(view.state().repos).isNotEmpty()
+    }
+
     companion object {
         private val SAMPLE_REPO = GithubRepoTestData.build()
     }
