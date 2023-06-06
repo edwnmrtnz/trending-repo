@@ -17,7 +17,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE, sdk = [Config.OLDEST_SDK], application = Application::class)
-class TrendingGithubRepoDaoTest {
+class TrendingTrendingRepoDaoTest {
 
     private lateinit var sut: TrendingGithubRepoDao
 

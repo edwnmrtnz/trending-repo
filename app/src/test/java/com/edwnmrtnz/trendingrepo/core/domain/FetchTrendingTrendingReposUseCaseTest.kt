@@ -17,12 +17,12 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-class FetchTrendingGithubReposUseCaseTest {
+class FetchTrendingTrendingReposUseCaseTest {
 
-    private lateinit var sut: FetchTrendingGithubReposUseCase
+    private lateinit var sut: FetchTrendingRepoUseCase
 
     @Mock
-    private lateinit var gateway: GithubRepoGateway
+    private lateinit var gateway: TrendingRepoGateway
 
     @Mock
     private lateinit var lastRequestProvider: LastRequestProvider
@@ -30,7 +30,7 @@ class FetchTrendingGithubReposUseCaseTest {
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
-        sut = FetchTrendingGithubReposUseCase(
+        sut = FetchTrendingRepoUseCase(
             TestInteractorHandler(),
             gateway,
             lastRequestProvider

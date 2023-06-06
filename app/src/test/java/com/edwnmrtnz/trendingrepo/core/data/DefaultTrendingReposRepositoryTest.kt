@@ -25,9 +25,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE, sdk = [Config.OLDEST_SDK], application = Application::class)
-class DefaultGithubReposRepositoryTest {
+class DefaultTrendingReposRepositoryTest {
 
-    private lateinit var sut: DefaultGithubReposRepository
+    private lateinit var sut: DefaultTrendingReposRepository
     private lateinit var server: MockWebServer
     private lateinit var db: TrendingRepoDatabase
 
@@ -40,7 +40,7 @@ class DefaultGithubReposRepositoryTest {
             ApplicationProvider.getApplicationContext(),
             TrendingRepoDatabase::class.java
         ).allowMainThreadQueries().build()
-        sut = DefaultGithubReposRepository(
+        sut = DefaultTrendingReposRepository(
             Retrofit.Builder()
                 .baseUrl(server.url("/"))
                 .addConverterFactory(GsonConverterFactory.create())

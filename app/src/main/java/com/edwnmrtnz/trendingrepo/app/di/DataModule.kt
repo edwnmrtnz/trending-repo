@@ -3,14 +3,14 @@ package com.edwnmrtnz.trendingrepo.app.di
 import android.content.Context
 import com.edwnmrtnz.trendingrepo.app.DefaultInteractorHandler
 import com.edwnmrtnz.trendingrepo.app.TrendyApplication
-import com.edwnmrtnz.trendingrepo.core.data.DefaultGithubReposRepository
 import com.edwnmrtnz.trendingrepo.core.data.DefaultLastRequestProvider
+import com.edwnmrtnz.trendingrepo.core.data.DefaultTrendingReposRepository
 import com.edwnmrtnz.trendingrepo.core.data.GithubAPI
 import com.edwnmrtnz.trendingrepo.core.data.LastRequestDao
 import com.edwnmrtnz.trendingrepo.core.data.TrendingGithubRepoDao
 import com.edwnmrtnz.trendingrepo.core.data.TrendingRepoDatabase
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
 import com.edwnmrtnz.trendingrepo.core.domain.LastRequestProvider
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepoGateway
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
 import dagger.Binds
 import dagger.Module
@@ -29,7 +29,7 @@ abstract class DataModule {
 
     @Binds
     @Singleton
-    abstract fun githubGateway(repo: DefaultGithubReposRepository): GithubRepoGateway
+    abstract fun githubGateway(repo: DefaultTrendingReposRepository): TrendingRepoGateway
 
     @Binds
     @Singleton

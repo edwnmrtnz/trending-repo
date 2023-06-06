@@ -1,13 +1,13 @@
 package com.edwnmrtnz.trendingrepo.ui
 
 import com.edwnmrtnz.trendingrepo.StatefulPresenter
-import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingGithubReposUseCase
+import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingRepoUseCase
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyException
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
 class MainPresenter @Inject constructor(
-    private val fetchTrendingGithubReposUseCase: FetchTrendingGithubReposUseCase
+    private val fetchTrendingGithubReposUseCase: FetchTrendingRepoUseCase
 ) : StatefulPresenter<MainUiState, MainScreenView>() {
 
     override fun initialState() = MainUiState(isLoading = true)

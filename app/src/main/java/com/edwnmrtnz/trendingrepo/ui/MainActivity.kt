@@ -19,7 +19,7 @@ import javax.inject.Provider
 class MainActivity : AppCompatActivity(), MainScreenView {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: GithubRepoAdapter
+    private lateinit var adapter: TrendingRepoAdapter
 
     @Inject
     lateinit var provider: Provider<MainPresenter>
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), MainScreenView {
 
         setSupportActionBar(binding.toolbar)
 
-        adapter = GithubRepoAdapter()
+        adapter = TrendingRepoAdapter()
         binding.rvGithubRepos.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,

@@ -1,7 +1,7 @@
 package com.edwnmrtnz.trendingrepo.core.data
 
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepo
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepo
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepoGateway
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyServiceFailureException
 import java.io.IOException
@@ -10,16 +10,16 @@ import javax.inject.Singleton
 import retrofit2.HttpException
 
 @Singleton
-class DefaultGithubReposRepository @Inject constructor(
+class DefaultTrendingReposRepository @Inject constructor(
     private val api: GithubAPI,
     private val dao: TrendingGithubRepoDao
-) : GithubRepoGateway {
+) : TrendingRepoGateway {
 
-    private val cache: MutableList<GithubRepo> = mutableListOf()
+    private val cache: MutableList<TrendingRepo> = mutableListOf()
 
-    override suspend fun load(): List<GithubRepo> {
+    override suspend fun load(): List<TrendingRepo> {
         return cache.takeIf { it.isNotEmpty() } ?: try {
-            api.get().items.map { it.toDomain() }.also {
+            api.get().items.map { it.toTrendingRepo() }.also {
                 cache.clear()
                 cache.addAll(it)
                 dao.insert(it.map { row -> row.toDbRow() })
@@ -38,7 +38,7 @@ class DefaultGithubReposRepository @Inject constructor(
         }
     }
 
-    override suspend fun reload(): List<GithubRepo> {
+    override suspend fun reload(): List<TrendingRepo> {
         TODO("Not yet implemented")
     }
 

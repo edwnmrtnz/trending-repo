@@ -1,9 +1,9 @@
 package com.edwnmrtnz.trendingrepo.core.data
 
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepo
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepo
 
-fun GithubRepoRawResponse.Item.toDomain(): GithubRepo {
-    return GithubRepo(
+fun GithubRepoRawResponse.Item.toTrendingRepo(): TrendingRepo {
+    return TrendingRepo(
         repoId = this.id,
         avatar = this.owner.avatarUrl,
         username = this.owner.login,
@@ -14,7 +14,7 @@ fun GithubRepoRawResponse.Item.toDomain(): GithubRepo {
     )
 }
 
-fun GithubRepo.toDbRow(): TrendingGithubRepoRow {
+fun TrendingRepo.toDbRow(): TrendingGithubRepoRow {
     return TrendingGithubRepoRow(
         repoId = repoId,
         avatar = avatar,

@@ -4,13 +4,13 @@ import com.edwnmrtnz.trendingrepo.core.domain.interactor.Interactor
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
 import javax.inject.Inject
 
-class FetchTrendingGithubReposUseCase @Inject constructor(
+class FetchTrendingRepoUseCase @Inject constructor(
     interactorHandler: InteractorHandler,
-    private val gateway: GithubRepoGateway,
+    private val gateway: TrendingRepoGateway,
     private val lastRequestProvider: LastRequestProvider
-) : Interactor<List<GithubRepo>, Unit>(interactorHandler) {
+) : Interactor<List<TrendingRepo>, Unit>(interactorHandler) {
 
-    override suspend fun run(params: Unit): List<GithubRepo> {
+    override suspend fun run(params: Unit): List<TrendingRepo> {
         return if (lastRequestProvider.isToday()) {
             gateway.load()
         } else {

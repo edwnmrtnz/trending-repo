@@ -13,17 +13,17 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-class ReloadTrendingGithubReposUseCaseTest {
+class ReloadTrendingTrendingReposUseCaseTest {
 
     @Mock
-    private lateinit var gateway: GithubRepoGateway
+    private lateinit var gateway: TrendingRepoGateway
 
-    private lateinit var sut: ReloadTrendingGithubReposUseCase
+    private lateinit var sut: ReloadTrendingRepoUseCase
 
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
-        sut = ReloadTrendingGithubReposUseCase(
+        sut = ReloadTrendingRepoUseCase(
             interactorHandler = TestInteractorHandler(),
             gateway = gateway
         )

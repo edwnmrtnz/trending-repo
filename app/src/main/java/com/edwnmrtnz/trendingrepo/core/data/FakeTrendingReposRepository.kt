@@ -1,15 +1,15 @@
 package com.edwnmrtnz.trendingrepo.core.data
 
 import android.content.Context
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepo
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepoGateway
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepo
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepoGateway
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class FakeGithubReposRepository @Inject constructor(
+class FakeTrendingReposRepository @Inject constructor(
     @ApplicationContext private val context: Context
-) : GithubRepoGateway {
+) : TrendingRepoGateway {
 
     private var exception: Exception? = null
 
@@ -21,14 +21,14 @@ class FakeGithubReposRepository @Inject constructor(
             .use { it.readText() }
     }
 
-    override suspend fun load(): List<GithubRepo> {
+    override suspend fun load(): List<TrendingRepo> {
         throwIfSet()
         val raw = read("trending.json")
         return Gson().fromJson(raw, GithubRepoRawResponse::class.java)
-            .items.map { it.toDomain() }
+            .items.map { it.toTrendingRepo() }
     }
 
-    override suspend fun reload(): List<GithubRepo> {
+    override suspend fun reload(): List<TrendingRepo> {
         throwIfSet()
         return load()
     }

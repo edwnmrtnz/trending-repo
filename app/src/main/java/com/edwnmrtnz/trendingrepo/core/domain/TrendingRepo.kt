@@ -1,6 +1,6 @@
 package com.edwnmrtnz.trendingrepo.core.domain
 
-data class GithubRepo(
+data class TrendingRepo(
     val repoId: Int,
     val avatar: String,
     val username: String,

@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.edwnmrtnz.trendingrepo.core.domain.GithubRepo
+import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepo
 import com.edwnmrtnz.trendingrepo.databinding.ItemGithubrepoBinding
 import com.squareup.picasso.Picasso
 
-class GithubRepoAdapter : ListAdapter<GithubRepo, GithubRepoAdapter.ViewHolder>(DiffUtilCallback) {
+class TrendingRepoAdapter : ListAdapter<TrendingRepo, TrendingRepoAdapter.ViewHolder>(
+    DiffUtilCallback
+) {
 
     private val placeholder: GradientDrawable = GradientDrawable()
     init {
@@ -20,12 +22,12 @@ class GithubRepoAdapter : ListAdapter<GithubRepo, GithubRepoAdapter.ViewHolder>(
         placeholder.setColor(Color.GRAY)
     }
 
-    object DiffUtilCallback : DiffUtil.ItemCallback<GithubRepo>() {
-        override fun areItemsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean {
+    object DiffUtilCallback : DiffUtil.ItemCallback<TrendingRepo>() {
+        override fun areItemsTheSame(oldItem: TrendingRepo, newItem: TrendingRepo): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: GithubRepo, newItem: GithubRepo): Boolean {
+        override fun areContentsTheSame(oldItem: TrendingRepo, newItem: TrendingRepo): Boolean {
             return oldItem == newItem
         }
     }
