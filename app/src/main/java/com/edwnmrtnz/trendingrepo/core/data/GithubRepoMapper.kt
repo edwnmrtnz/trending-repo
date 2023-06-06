@@ -14,6 +14,18 @@ fun GithubRepoRawResponse.Item.toTrendingRepo(): TrendingRepo {
     )
 }
 
+fun TrendingGithubRepoRow.toTrendingRepo(): TrendingRepo {
+    return TrendingRepo(
+        repoId = repoId,
+        avatar = avatar,
+        username = username,
+        repoName = repoName,
+        description = description,
+        primaryLanguage = primaryLanguage,
+        starCount = starCount
+    )
+}
+
 fun TrendingRepo.toDbRow(): TrendingGithubRepoRow {
     return TrendingGithubRepoRow(
         repoId = repoId,

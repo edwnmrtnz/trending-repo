@@ -19,6 +19,11 @@ class DefaultTrendingReposRepository @Inject constructor(
 
     override suspend fun load(): List<TrendingRepo> {
         return cache.takeIf { it.isNotEmpty() } ?: try {
+            val rows = dao.get()
+            if (rows.isNotEmpty()) {
+                cache.addAll(rows.map { it.toTrendingRepo() })
+                return cache
+            }
             api.get().items.map { it.toTrendingRepo() }.also {
                 cache.clear()
                 cache.addAll(it)

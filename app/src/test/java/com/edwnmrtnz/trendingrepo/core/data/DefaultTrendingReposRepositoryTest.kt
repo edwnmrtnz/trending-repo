@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.edwnmrtnz.trendingrepo.AppTestConstant
+import com.edwnmrtnz.trendingrepo.GithubRepoTestData
 import com.edwnmrtnz.trendingrepo.TestAssetReader
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyServiceFailureException
@@ -110,6 +111,15 @@ class DefaultTrendingReposRepositoryTest {
         sut.load()
 
         Truth.assertThat(db.trendingGithubRepoDao().get()).isNotEmpty()
+    }
+
+    @Test
+    fun `when trending repo already available locally, no need to fetch`() = runBlocking {
+        db.trendingGithubRepoDao().insert(listOf(GithubRepoTestData.build().toDbRow()))
+
+        sut.load()
+
+        Truth.assertThat(server.requestCount).isEqualTo(0)
     }
 
     companion object {
