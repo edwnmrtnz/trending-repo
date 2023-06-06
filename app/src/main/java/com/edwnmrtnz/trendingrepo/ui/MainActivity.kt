@@ -3,16 +3,28 @@ package com.edwnmrtnz.trendingrepo.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edwnmrtnz.trendingrepo.R
 import com.edwnmrtnz.trendingrepo.databinding.ActivityMainBinding
+import com.github.amaterasu.scopey.scopey
+import javax.inject.Inject
+import javax.inject.Provider
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainScreenView {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: GithubRepoAdapter
+
+    @Inject
+    lateinit var provider: Provider<MainPresenter>
+
+    private val presenter by scopey {
+        provider.get()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -22,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val adapter = GithubRepoAdapter()
+        adapter = GithubRepoAdapter()
         binding.rvGithubRepos.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,
@@ -32,6 +44,16 @@ class MainActivity : AppCompatActivity() {
             RecyclerViewItemDecoration(this, R.drawable.shape_divider)
         )
         binding.rvGithubRepos.adapter = adapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter.bind(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.unbind()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,6 +69,40 @@ class MainActivity : AppCompatActivity() {
             }
 
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun render(state: MainUiState) {
+        if (state.isLoading) {
+            binding.llEmptyStateContainer.visibility = View.GONE
+            binding.sflMainShimmer.sflMainShimmer.visibility = View.VISIBLE
+            binding.rvGithubRepos.visibility = View.GONE
+            return
+        }
+
+        if (state.loadError.isNullOrBlank()) {
+            binding.rvGithubRepos.visibility = View.GONE
+            binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
+            binding.llEmptyStateContainer.visibility = View.VISIBLE
+
+            binding.tvEmptyStateTitle.text = getString(R.string.title_detault_error)
+            binding.tvEmptyStateSubtitle.text = getString(R.string.subtitle_default_error)
+            return
+        }
+
+        if (state.repos.isNotEmpty()) {
+            adapter.submitList(state.repos)
+            binding.rvGithubRepos.visibility = View.VISIBLE
+            binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
+            binding.llEmptyStateContainer.visibility = View.GONE
+        } else {
+            adapter.submitList(mutableListOf())
+            binding.rvGithubRepos.visibility = View.GONE
+            binding.sflMainShimmer.sflMainShimmer.visibility = View.GONE
+            binding.llEmptyStateContainer.visibility = View.VISIBLE
+
+            binding.tvEmptyStateTitle.text = getString(R.string.title_detault_error)
+            binding.tvEmptyStateSubtitle.text = getString(R.string.subtitle_error_no_trending)
         }
     }
 }
