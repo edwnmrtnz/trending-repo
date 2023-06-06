@@ -23,12 +23,74 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp" />
 
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:id="@+id/rvGithubRepos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+       <androidx.recyclerview.widget.RecyclerView
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+           android:id="@+id/rvGithubRepos"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
+
+
+       <androidx.appcompat.widget.LinearLayoutCompat
+           android:visibility="gone"
+           tools:visibility="visible"
+           android:id="@+id/llEmptyStateContainer"
+           android:padding="24dp"
+           android:orientation="vertical"
+           android:layout_gravity="center"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <com.airbnb.lottie.LottieAnimationView
+               android:layout_gravity=""
+               app:lottie_autoPlay="true"
+               app:lottie_loop="true"
+               app:lottie_rawRes="@raw/lottie_retry"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+           <androidx.appcompat.widget.AppCompatTextView
+               android:id="@+id/tvEmptyStateTitle"
+               android:textStyle="bold"
+               android:textAppearance="?textAppearanceTitleLarge"
+               android:layout_marginTop="24dp"
+               android:layout_gravity="center"
+               tools:text="Something went wrong.."
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <androidx.appcompat.widget.AppCompatTextView
+               android:id="@+id/tvEmptyStateSubtitle"
+               android:textColor="#bcbcbc"
+               android:textAppearance="?textAppearanceSubtitle1"
+               android:layout_marginTop="8dp"
+               android:layout_gravity="center"
+               android:textAlignment="center"
+               tools:text="An alien is probably blocking your signal"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.button.MaterialButton
+               android:id="@+id/btnRetry"
+               app:rippleColor="@color/divider"
+               android:padding="12dp"
+               app:strokeWidth="1dp"
+               app:strokeColor="#72bc7b"
+               style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+               android:layout_marginTop="64dp"
+               android:textAllCaps="true"
+               android:textColor="#72bc7b"
+               android:text="@string/action_retry"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+   </FrameLayout>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

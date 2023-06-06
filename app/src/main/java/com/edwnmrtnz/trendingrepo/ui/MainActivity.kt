@@ -6,12 +6,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edwnmrtnz.trendingrepo.R
-import com.edwnmrtnz.trendingrepo.core.data.FakeGithubReposRepository
 import com.edwnmrtnz.trendingrepo.databinding.ActivityMainBinding
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,12 +32,6 @@ class MainActivity : AppCompatActivity() {
             RecyclerViewItemDecoration(this, R.drawable.shape_divider)
         )
         binding.rvGithubRepos.adapter = adapter
-
-        val repo = FakeGithubReposRepository(this)
-
-        lifecycleScope.launch {
-            adapter.submitList(repo.load())
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
