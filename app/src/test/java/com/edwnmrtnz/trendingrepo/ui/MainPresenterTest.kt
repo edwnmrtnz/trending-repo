@@ -1,7 +1,7 @@
 package com.edwnmrtnz.trendingrepo.ui
 
 import com.edwnmrtnz.trendingrepo.GithubRepoTestData
-import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingRepoUseCase
+import com.edwnmrtnz.trendingrepo.core.domain.FetchTrendingReposUseCase
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
 import com.edwnmrtnz.trendingrepo.presenter.StatefulPresenter
 import com.edwnmrtnz.trendingrepo.presenter.TestView
@@ -25,7 +25,7 @@ class MainPresenterTest {
     val coroutineTestRule = CoroutineTestRule()
 
     @Mock
-    private lateinit var fetchTrendingGithubReposUseCase: FetchTrendingRepoUseCase
+    private lateinit var fetchTrendingGithubReposUseCase: FetchTrendingReposUseCase
 
     @Before
     fun setup() {

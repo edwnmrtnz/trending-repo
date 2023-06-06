@@ -17,9 +17,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-class FetchTrendingTrendingReposUseCaseTest {
+class FetchTrendingReposUseCaseTest {
 
-    private lateinit var sut: FetchTrendingRepoUseCase
+    private lateinit var sut: FetchTrendingReposUseCase
 
     @Mock
     private lateinit var gateway: TrendingRepoGateway
@@ -30,7 +30,7 @@ class FetchTrendingTrendingReposUseCaseTest {
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
-        sut = FetchTrendingRepoUseCase(
+        sut = FetchTrendingReposUseCase(
             TestInteractorHandler(),
             gateway,
             lastRequestProvider
@@ -100,6 +100,7 @@ class FetchTrendingTrendingReposUseCaseTest {
 
         Mockito.verify(gateway).clear()
         Mockito.verify(gateway).load()
+        Mockito.verify(lastRequestProvider).update()
     }
 
     companion object {

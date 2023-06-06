@@ -4,7 +4,7 @@ import com.edwnmrtnz.trendingrepo.core.domain.interactor.Interactor
 import com.edwnmrtnz.trendingrepo.core.domain.interactor.InteractorHandler
 import javax.inject.Inject
 
-class FetchTrendingRepoUseCase @Inject constructor(
+class FetchTrendingReposUseCase @Inject constructor(
     interactorHandler: InteractorHandler,
     private val gateway: TrendingRepoGateway,
     private val lastRequestProvider: LastRequestProvider
@@ -15,7 +15,9 @@ class FetchTrendingRepoUseCase @Inject constructor(
             gateway.load()
         } else {
             gateway.clear()
-            gateway.load()
+            gateway.load().also {
+                lastRequestProvider.update()
+            }
         }
     }
 }
