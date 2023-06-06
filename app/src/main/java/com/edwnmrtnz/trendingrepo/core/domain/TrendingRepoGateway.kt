@@ -4,7 +4,5 @@ interface TrendingRepoGateway {
 
     suspend fun load(): List<TrendingRepo>
 
-    suspend fun reload(): List<TrendingRepo>
-
     suspend fun clear()
 }

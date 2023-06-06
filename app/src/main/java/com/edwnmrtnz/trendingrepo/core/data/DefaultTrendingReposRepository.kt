@@ -43,10 +43,6 @@ class DefaultTrendingReposRepository @Inject constructor(
         }
     }
 
-    override suspend fun reload(): List<TrendingRepo> {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun clear() {
         cache.clear()
     }

@@ -1,6 +1,7 @@
 package com.edwnmrtnz.trendingrepo.core.data
 
 import android.content.Context
+import android.util.Log
 import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepo
 import com.edwnmrtnz.trendingrepo.core.domain.TrendingRepoGateway
 import com.google.gson.Gson
@@ -28,13 +29,8 @@ class FakeTrendingReposRepository @Inject constructor(
             .items.map { it.toTrendingRepo() }
     }
 
-    override suspend fun reload(): List<TrendingRepo> {
-        throwIfSet()
-        return load()
-    }
-
     override suspend fun clear() {
-        TODO("Not yet implemented")
+        Log.d(TAG, "clear")
     }
 
     private fun throwIfSet() {
@@ -47,5 +43,9 @@ class FakeTrendingReposRepository @Inject constructor(
 
     fun clean() {
         exception = null
+    }
+
+    companion object {
+        private const val TAG = "FakeRepo"
     }
 }
