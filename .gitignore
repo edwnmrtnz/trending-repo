@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+app/trendingrepo.keystore
+keystore.properties
+*.keystore
+
+*.apk
+*.aab
+

@@ -4,7 +4,21 @@ plugins {
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.kotlin.kapt)
 }
+def KEYSTORE = rootProject.file("app/keystore.properties")
+
 android {
+    signingConfigs {
+        release {
+            if (!KEYSTORE.exists()) return
+            def properties = new Properties()
+            properties.load(new FileInputStream(KEYSTORE))
+            storeFile rootProject.file("app/${properties['STORE_FILE']}")
+            storePassword properties['STORE_PASSWORD']
+            keyAlias properties['KEY_ALIAS']
+            keyPassword properties['KEY_PASSWORD']
+        }
+    }
+
     namespace 'com.edwnmrtnz.trendingrepo'
     defaultConfig {
         applicationId "com.edwnmrtnz.trendingrepo"
