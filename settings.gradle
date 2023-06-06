@@ -26,3 +26,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "trending-repo"
 include ':app'
+include ':presenter'

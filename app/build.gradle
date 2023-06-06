@@ -16,4 +16,6 @@ dependencies {
     implementation(libs.bundles.app)
     testImplementation(libs.bundles.testing.local)
     androidTestImplementation(libs.bundles.testing.instrumented)
+
+    implementation project(path: ':presenter')
 }

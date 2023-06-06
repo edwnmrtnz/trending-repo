@@ -1,0 +1,14 @@
+plugins {
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.lib)
+}
+
+android {
+    namespace 'com.edwnmrtnz.trendingrepo'
+}
+
+dependencies {
+    implementation(libs.coroutines.android)
+    implementation(libs.edwnmrtnz.scopey)
+    testImplementation(libs.bundles.testing.local)
+}
