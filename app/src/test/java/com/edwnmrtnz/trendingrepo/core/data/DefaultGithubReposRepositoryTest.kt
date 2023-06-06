@@ -5,7 +5,6 @@ import com.edwnmrtnz.trendingrepo.TestAssetReader
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyHttpErrorException
 import com.edwnmrtnz.trendingrepo.core.domain.exceptions.TrendyServiceFailureException
 import com.google.common.truth.Truth
-import java.nio.Buffer
 import kotlinx.coroutines.test.runTest
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -43,10 +42,9 @@ class DefaultGithubReposRepositoryTest {
 
     @Test
     fun `should be able to return github repos on load`() = runTest {
-        val raw = TestAssetReader.read(AppTestConstant.MODULE, "trending.json")
         val response = MockResponse()
             .setResponseCode(200)
-            .setBody(raw)
+            .setBody(TRENDING)
         server.enqueue(response)
 
         val result = sut.load()
@@ -72,5 +70,22 @@ class DefaultGithubReposRepositoryTest {
         server.enqueue(response)
 
         sut.load()
+    }
+
+    @Test
+    fun `should not re-fetch when in memory cache already available`() = runTest {
+        val response = MockResponse()
+            .setResponseCode(200)
+            .setBody(TRENDING)
+        server.enqueue(response)
+        sut.load()
+        Truth.assertThat(server.requestCount).isEqualTo(1)
+
+        sut.load()
+        Truth.assertThat(server.requestCount).isEqualTo(1)
+    }
+
+    companion object {
+        private val TRENDING = TestAssetReader.read(AppTestConstant.MODULE, "trending.json")
     }
 }

@@ -14,9 +14,14 @@ class DefaultGithubReposRepository @Inject constructor(
     private val api: GithubAPI
 ) : GithubRepoGateway {
 
+    private val cache: MutableList<GithubRepo> = mutableListOf()
+
     override suspend fun load(): List<GithubRepo> {
-        return try {
-            api.get().items.map { it.toDomain() }
+        return cache.takeIf { it.isNotEmpty() } ?: try {
+            api.get().items.map { it.toDomain() }.also {
+                cache.clear()
+                cache.addAll(it)
+            }
         } catch (exception: HttpException) {
             throw TrendyHttpErrorException(
                 exception = exception,
