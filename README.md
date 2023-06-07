@@ -1,6 +1,13 @@
 # TrendyRepo
 Simple single screen app which shows the current trending Github repositories.
 
+<p float="left">
+    <img style="margin-left:10px;" src="screenshots/shimmer.png" width = "200"/>
+    <img style="margin-left:10px;" src="screenshots/home-light.png" width = "200"/>
+    <img style="margin-left:10px;" src="screenshots/error.png" width = "200"/>
+    <img style="margin-left:10px;" src="screenshots/home-dark.png" width = "200"/>
+</p>
+
 ### <b> Tech Stack </b>
 1. Clean Architecture
 2. Local Unit Testing (JUnit, MockWebServer, Mockito, Google Truth)
