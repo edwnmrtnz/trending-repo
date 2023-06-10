@@ -34,6 +34,7 @@ abstract class StatefulPresenter<State, View : ScreenView<State>> {
 
     fun unbind() {
         view = null
+        onStopped()
     }
 
     fun getCurrentState() = this.latestState
